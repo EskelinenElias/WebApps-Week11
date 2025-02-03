@@ -2,10 +2,11 @@ import { Suspense } from 'react';
 import Header from './components/Header';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import FrontPage from './components/FrontPage';
+import SavedPage from './components/SavedPage';
 import useJokes from './hooks/useJokes';
 
 function Router() {
-  const { saveJoke } = useJokes();
+  const { saveJoke, savedJokes } = useJokes();
   return (
     <div className="App">
       <BrowserRouter>
@@ -20,7 +21,7 @@ function Router() {
           { /* Saved page */}
           <Route path="/saved" element={
             <> 
-              <h1>Saved Page</h1>
+              <SavedPage savedJokes={savedJokes}/>
             </>
           }/>
         </Routes>

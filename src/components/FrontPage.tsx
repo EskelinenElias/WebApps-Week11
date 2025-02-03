@@ -3,7 +3,8 @@ import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import { IJoke } from '../types/joke';
+import IJoke from '../types/joke';
+import JokeContent from './JokeContent';
 
 interface FrontPageProps {
     saveJoke?: (joke: IJoke) => void;
@@ -79,12 +80,8 @@ const FrontPage: React.FC<FrontPageProps> = ({ saveJoke }) => {
       {error && <Typography color="error">Error: {error}</Typography>}
       {joke && (
         <Card key={joke.id}>
+          <JokeContent setup={joke.setup} punchline={joke.punchline}/>
           <CardContent>
-            { /* Joke setup */ }
-            <Typography variant="h5" component="div">{joke.setup}</Typography>
-            { /* Joke punchline */ }
-            <Typography variant="h6">{joke.punchline}</Typography>
-            { /* Save joke button */}
             <Button variant="contained" onClick={handleSaveJoke}>Save Joke</Button>
           </CardContent>
         </Card>
