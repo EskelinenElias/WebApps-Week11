@@ -6,7 +6,7 @@ import SavedPage from './components/SavedPage';
 import useJokes from './hooks/useJokes';
 
 function Router() {
-  const { saveJoke, savedJokes } = useJokes();
+  const { savedJokes, saveJoke, deleteJoke } = useJokes();
   return (
     <div className="App">
       <BrowserRouter>
@@ -21,7 +21,7 @@ function Router() {
           { /* Saved page */}
           <Route path="/saved" element={
             <> 
-              <SavedPage savedJokes={savedJokes}/>
+              <SavedPage savedJokes={savedJokes} deleteJoke={deleteJoke}/>
             </>
           }/>
         </Routes>
