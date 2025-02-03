@@ -4,20 +4,21 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 
-interface Joke {
+interface FrontPageProps {
+    saveJoke?: (joke: IJoke) => void;
+}
+
+export interface IJoke {
   id: number;
   type: string;
   setup: string;
   punchline: string;
 }
 
-function FrontPage() {
-  
-  // Track first render (To Prevent the joke from loading twice)
-  // const isFirstRender = useRef(true); 
+const FrontPage: React.FC<FrontPageProps> = ({ saveJoke }) => {
   
   // Initialize states
-  const [joke, setJoke] = useState<Joke | null>(null);
+  const [joke, setJoke] = useState<IJoke | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -66,11 +67,17 @@ function FrontPage() {
     // Return a handle to the controller
     return () => { controller.abort(); }
   }, []);
+  
+  function handleSaveJoke() {
+    if (joke && saveJoke) {
+      saveJoke(joke)
+    }
+  }
     
 
   return (
     <>
-      <Button variant="contained" onClick={ () => fetchJoke() }>Get joke</Button>
+      <Button variant="contained" onClick={ () => fetchJoke() }>Get Joke</Button>
       {isLoading && <Typography>Loading a joke...</Typography>}
       {error && <Typography color="error">Error: {error}</Typography>}
       {joke && (
@@ -80,6 +87,8 @@ function FrontPage() {
             <Typography variant="h5" component="div">{joke.setup}</Typography>
             { /* Joke punchline */ }
             <Typography variant="h6">{joke.punchline}</Typography>
+            { /* Save joke button */}
+            <Button variant="contained" onClick={handleSaveJoke}>Save Joke</Button>
           </CardContent>
         </Card>
       )}
