@@ -14,7 +14,7 @@ interface Joke {
 function FrontPage() {
   
   // Track first render (To Prevent the joke from loading twice)
-  const isFirstRender = useRef(true); 
+  // const isFirstRender = useRef(true); 
   
   // Initialize states
   const [joke, setJoke] = useState<Joke | null>(null);
@@ -55,14 +55,14 @@ function FrontPage() {
     // Initialize the abort controller
     const controller = new AbortController();
     
-    if (isFirstRender.current) {
+    //if (isFirstRender.current) {
       
       // Set to false after the first render
-      isFirstRender.current = false; 
+     // isFirstRender.current = false; 
       
-      // Fetch a new joke
-      fetchJoke();
-    }
+    // Fetch a new joke
+    fetchJoke();
+      //}
     // Return a handle to the controller
     return () => { controller.abort(); }
   }, []);
