@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { Joke } from '../components/FrontPage';
+import { IJoke } from '../components/FrontPage';
 
 const useJokes = () => {
-  const [savedJokes, setSavedJokes] = useState<Joke[]>([]);
+  const [savedJokes, setSavedJokes] = useState<IJoke[]>([]);
 
-  const saveJoke = (newJoke: Joke) => {
+  const saveJoke = (newJoke: IJoke) => {
     setSavedJokes([...savedJokes, newJoke]);
   };
 

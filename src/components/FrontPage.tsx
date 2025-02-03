@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -16,6 +16,8 @@ export interface IJoke {
 }
 
 const FrontPage: React.FC<FrontPageProps> = ({ saveJoke }) => {
+  
+  const isFirstRender = useRef(true);
   
   // Initialize states
   const [joke, setJoke] = useState<IJoke | null>(null);
@@ -56,14 +58,15 @@ const FrontPage: React.FC<FrontPageProps> = ({ saveJoke }) => {
     // Initialize the abort controller
     const controller = new AbortController();
     
-    //if (isFirstRender.current) {
+    if (isFirstRender.current) {
       
       // Set to false after the first render
-     // isFirstRender.current = false; 
+      isFirstRender.current = false; 
       
-    // Fetch a new joke
-    fetchJoke();
-      //}
+      // Fetch a new joke
+      fetchJoke();
+    }
+    
     // Return a handle to the controller
     return () => { controller.abort(); }
   }, []);

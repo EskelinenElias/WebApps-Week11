@@ -2,8 +2,10 @@ import { Suspense } from 'react';
 import Header from './components/Header';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import FrontPage from './components/FrontPage';
+import useJokes from './hooks/useJokes';
 
 function Router() {
+  const { saveJoke } = useJokes();
   return (
     <div className="App">
       <BrowserRouter>
@@ -12,7 +14,7 @@ function Router() {
           // Home page
           <Route path="/" element={
             <>
-              <FrontPage/>
+              <FrontPage saveJoke={saveJoke}/>
             </>
           }/>
           // About page
