@@ -37,8 +37,11 @@ function FrontPage() {
       setJoke(data);
     } catch (error) {
       if (error instanceof Error) { 
-        setError(error.message); 
-        console.error(error.message); 
+        if (error.name == "AbortError") {
+          console.log("aborted")
+        } else {
+          setError(error.message);
+        } 
       } else { 
         setError("unknown error"); 
       }
@@ -67,7 +70,7 @@ function FrontPage() {
 
   return (
     <>
-      <Button variant="contained" onClick={ () => fetchJoke() }>Get a new Joke!</Button>
+      <Button variant="contained" onClick={ () => fetchJoke() }>Get joke</Button>
       {isLoading && <Typography>Loading a joke...</Typography>}
       {error && <Typography color="error">Error: {error}</Typography>}
       {joke && (
