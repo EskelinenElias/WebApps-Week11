@@ -1,6 +1,7 @@
 import IJoke from '../types/joke';
-import JokeContent from './JokeContent';
-import { Typography, Button, Card, CardContent } from '@mui/material/';
+// import JokeContent from './JokeContent';
+// import { Typography, Button, Card, CardContent } from '@mui/material/';
+import { Typography } from '@mui/material';
 import JokeCard from './JokeCard';
 
 interface SavedPageProps {
