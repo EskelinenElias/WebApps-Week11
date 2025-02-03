@@ -6,6 +6,7 @@ interface JokeContentProps {
   setup: string; 
   punchline: string; 
 }
+
 const JokeContent: React.FC<JokeContentProps> = ({ setup, punchline }) => {
   return (
     <CardContent>

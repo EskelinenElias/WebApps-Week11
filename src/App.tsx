@@ -5,6 +5,7 @@ import FrontPage from './components/FrontPage';
 import SavedPage from './components/SavedPage';
 import { useJokes } from './hooks/useJokes';
 
+// Router functionality
 function Router() {
   const { savedJokes, saveJoke, deleteJoke } = useJokes();
   return (
@@ -12,17 +13,11 @@ function Router() {
       <BrowserRouter>
         <Header/>
         <Routes>
-          { /* Home page */}
           <Route path="/" element={
-            <>
-              <FrontPage saveJoke={saveJoke}/>
-            </>
+            <FrontPage saveJoke={saveJoke}/>
           }/>
-          { /* Saved page */}
           <Route path="/saved" element={
-            <> 
-              <SavedPage savedJokes={savedJokes} deleteJoke={deleteJoke}/>
-            </>
+            <SavedPage savedJokes={savedJokes} deleteJoke={deleteJoke}/>
           }/>
         </Routes>
       </BrowserRouter>
@@ -30,6 +25,7 @@ function Router() {
   )
 }
 
+// Main App
 function App() {
   return (
     <Suspense fallback="loading">
