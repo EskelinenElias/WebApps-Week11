@@ -11,16 +11,16 @@ function Router() {
       <BrowserRouter>
         <Header/>
         <Routes>
-          // Home page
+          { /* Home page */}
           <Route path="/" element={
             <>
               <FrontPage saveJoke={saveJoke}/>
             </>
           }/>
-          // About page
+          { /* Saved page */}
           <Route path="/saved" element={
             <> 
-              <h1>About Page</h1>
+              <h1>Saved Page</h1>
             </>
           }/>
         </Routes>
