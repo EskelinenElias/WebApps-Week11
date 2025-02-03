@@ -18,4 +18,4 @@ const useJokes = () => {
   return { savedJokes, saveJoke, deleteJoke};
 };
 
-export default useJokes;
+export { useJokes };

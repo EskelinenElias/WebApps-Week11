@@ -3,7 +3,7 @@ import Header from './components/Header';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import FrontPage from './components/FrontPage';
 import SavedPage from './components/SavedPage';
-import useJokes from './hooks/useJokes';
+import { useJokes } from './hooks/useJokes';
 
 function Router() {
   const { savedJokes, saveJoke, deleteJoke } = useJokes();
