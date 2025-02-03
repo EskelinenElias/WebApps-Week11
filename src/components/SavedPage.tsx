@@ -1,6 +1,4 @@
 import IJoke from '../types/joke';
-// import JokeContent from './JokeContent';
-// import { Typography, Button, Card, CardContent } from '@mui/material/';
 import { Typography } from '@mui/material';
 import JokeCard from './JokeCard';
 
@@ -34,14 +32,3 @@ const SavedPage: React.FC<SavedPageProps> = ({ savedJokes, deleteJoke }) => {
 };
 
 export default SavedPage;
-
-
-/* 
-<Card key={joke.id}>
-  <JokeContent setup={joke.setup} punchline={joke.punchline}/>
-  <CardContent>
-    <Button variant="contained" onClick={() => handleDeleteJoke(joke.id)}>Delete</Button>
-  </CardContent>
-</Card>
-
-*/
