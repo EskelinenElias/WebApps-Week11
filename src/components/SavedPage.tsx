@@ -22,7 +22,7 @@ const SavedPage: React.FC<SavedPageProps> = ({ savedJokes, deleteJoke }) => {
           <Card key={joke.id}>
             <JokeContent setup={joke.setup} punchline={joke.punchline}/>
             <CardContent>
-              <Button variant="contained" onClick={() => handleDeleteJoke(joke.id)}>Delete Joke</Button>
+              <Button variant="contained" onClick={() => handleDeleteJoke(joke.id)}>Delete</Button>
             </CardContent>
           </Card>
         )
