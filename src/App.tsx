@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 import Header from './components/Header';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import FrontPage from './components/FrontPage';
 
 function Router() {
   return (
@@ -11,7 +12,7 @@ function Router() {
           // Home page
           <Route path="/" element={
             <>
-              <h1>Home Page</h1>
+              <FrontPage/>
             </>
           }/>
           // About page
